@@ -4,8 +4,12 @@
 
 [node name="mundo" type="Node2D"]
 
-[node name="Card" parent="." instance=ExtResource( 1 )]
+[node name="cards" type="Node" parent="."]
+
+[node name="Card" parent="cards" instance=ExtResource( 1 )]
 position = Vector2( 344.588, 116.543 )
 
-[node name="Card2" parent="." instance=ExtResource( 1 )]
+[node name="Card2" parent="cards" instance=ExtResource( 1 )]
 position = Vector2( 825.588, 108.543 )
+
+[node name="dropZones" type="Node" parent="."]

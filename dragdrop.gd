@@ -78,9 +78,14 @@ func run_state_goingTo(delta):
 func _follow(delta):
 	self.global_position = lerp(self.global_position ,get_global_mouse_position(), 25.00 * delta);
 
-#func _goToNewPosition(new_position, delta):
 
-
+func _selectCard(): 
+	z_index = 100;
+	isSelected = true;
+	
+func _deselectCard(): 
+	z_index = 10;
+	isSelected = false;
 
 
 
@@ -90,19 +95,15 @@ func _follow(delta):
 #===============================================================================
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=EVENTOS DE TOUCH=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #===============================================================================
-
-
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	
 	if isToucheable and Input.is_action_just_pressed("click"):
 		#$Label.text = "Following"
-		isSelected = true;
-		#z_index = 100
+		_selectCard();
 
 
 
 func _input(event):
 	if event.is_action_released("click"):
 		#$Label.text = "Dragged"
-		isSelected = false;
-		#z_index = 10
+		_deselectCard();
