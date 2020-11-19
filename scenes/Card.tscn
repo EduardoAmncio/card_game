@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://dragdrop.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.3507, 31.9469 )
+
+[node name="Card" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -31.3462
+margin_top = -66.6652
+margin_right = 59.6538
+margin_bottom = -32.6652
+text = "label"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="input_event" from="Sprite/Area2D" to="." method="_on_Area2D_input_event"]
