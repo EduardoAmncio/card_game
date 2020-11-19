@@ -6,3 +6,6 @@
 
 [node name="Card" parent="." instance=ExtResource( 1 )]
 position = Vector2( 344.588, 116.543 )
+
+[node name="Card2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 825.588, 108.543 )

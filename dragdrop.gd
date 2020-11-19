@@ -33,30 +33,41 @@ func _physics_process(delta):
 			run_state_rest(delta);
 			pass
 		STATES.FOLLOW:
+			run_state_follow(delta);
 			pass
 		STATES.GOINGTO:
 			pass
 
 #REST STATE:
 func _initialize_rest():
+	print("entrou no init REST");
 	$Label.text = "REST";
+	state_next = STATES.REST;
 	pass
 
 func run_state_rest(delta):
+	if isSelected:
+		_initialize_follow();
 	pass
 	
 #FOLLOW STATE:
 func _initialize_follow():
+	print("entrou no init FOLLOW");
 	$Label.text = "FOLLOW";
+	state_next = STATES.FOLLOW;
 	pass
 
 func run_state_follow(delta):
+	_follow(delta);
 	
+	if !isSelected:
+		_initialize_rest();
 	pass
 
 #GOINGTO STATE:
 func _initialize_goingTo():
 	$Label.text = "GOING TO";
+	state_next = STATES.GOINGTO;
 	pass
 
 func run_state_goingTo(delta):
@@ -76,20 +87,22 @@ func _follow(delta):
 
 
 
-
+#===============================================================================
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=EVENTOS DE TOUCH=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#===============================================================================
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	
 	if isToucheable and Input.is_action_just_pressed("click"):
-		$Label.text = "Following"
+		#$Label.text = "Following"
 		isSelected = true;
-		z_index = 100
+		#z_index = 100
 
 
 
 func _input(event):
 	if event.is_action_released("click"):
-		$Label.text = "Dragged"
+		#$Label.text = "Dragged"
 		isSelected = false;
-		z_index = 10
+		#z_index = 10
