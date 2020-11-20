@@ -27,6 +27,11 @@ click={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_6="cards"
+2d_render/layer_7="rest_zone"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
