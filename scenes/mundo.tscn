@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/RestZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mundo.gd" type="Script" id=3]
+[ext_resource path="res://assets/imgs/card2.png" type="Texture" id=4]
 
 [node name="mundo" type="Node2D"]
 script = ExtResource( 3 )
@@ -10,18 +11,54 @@ script = ExtResource( 3 )
 [node name="cards" type="Node" parent="."]
 
 [node name="Card" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 67.3477, 144.797 )
+position = Vector2( 115.294, 110.336 )
+
+[node name="Card3" parent="cards" instance=ExtResource( 1 )]
+position = Vector2( 110.799, 347.068 )
+
+[node name="Card6" parent="cards" instance=ExtResource( 1 )]
+position = Vector2( 396.975, 465.435 )
 
 [node name="Card2" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 259.288, 148.165 )
+position = Vector2( 670.568, 115.235 )
+
+[node name="Sprite2" type="Sprite" parent="cards/Card2"]
+position = Vector2( -0.0594368, 0.0792522 )
+scale = Vector2( 4.0066, 4.0066 )
+texture = ExtResource( 4 )
+
+[node name="Card4" parent="cards" instance=ExtResource( 1 )]
+position = Vector2( 693.043, 341.479 )
+
+[node name="Sprite2" type="Sprite" parent="cards/Card4"]
+position = Vector2( -0.0594368, 0.0792522 )
+scale = Vector2( 4.0066, 4.0066 )
+texture = ExtResource( 4 )
+
+[node name="Card5" parent="cards" instance=ExtResource( 1 )]
+position = Vector2( 358.92, 1.36362 )
+
+[node name="Sprite2" type="Sprite" parent="cards/Card5"]
+position = Vector2( -0.0594368, 0.0792522 )
+scale = Vector2( 4.0066, 4.0066 )
+texture = ExtResource( 4 )
 
 [node name="dropZones" type="Node" parent="."]
 
 [node name="RestZone" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 116.732, 208.774 )
+position = Vector2( 200.637, 132.36 )
+
+[node name="RestZone4" parent="dropZones" instance=ExtResource( 2 )]
+position = Vector2( 197.641, 324.144 )
+
+[node name="RestZone5" parent="dropZones" instance=ExtResource( 2 )]
+position = Vector2( 384.929, 325.642 )
+
+[node name="RestZone6" parent="dropZones" instance=ExtResource( 2 )]
+position = Vector2( 578.211, 328.639 )
 
 [node name="RestZone2" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 217.241, 208.774 )
+position = Vector2( 578.333, 136.855 )
 
 [node name="RestZone3" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 118.899, 324.615 )
+position = Vector2( 376.062, 132.36 )

@@ -12,6 +12,8 @@ var state_preview = null
 var restZone: Node2D;
 var arrZoneEntered = [];
 
+onready var animatePlayer = $AnimationPlayer;
+
 func _ready():
 	z_index = 50;
 	restZone = null;
@@ -50,6 +52,7 @@ func _initialize_rest():
 	isToucheable = true;
 	$Label.text = "REST";
 	state_next = STATES.REST;
+	animatePlayer.play("rest");
 
 func run_state_rest(delta):
 	if isSelected:
@@ -62,6 +65,7 @@ func _initialize_follow():
 	isToucheable = false;
 	$Label.text = "FOLLOW";
 	state_next = STATES.FOLLOW;
+	animatePlayer.play("follow");
 
 func run_state_follow(delta):
 	_follow(delta);
@@ -79,6 +83,7 @@ func _initialize_GOING_TO():
 	isToucheable = false;
 	$Label.text = "GOING TO";
 	state_next = STATES.GOING_TO;
+	animatePlayer.play("rest");
 
 func run_state_GOING_TO(delta):
 	if global_position.distance_to(restZone.global_position) > 1:
@@ -93,6 +98,7 @@ func _initialize_RETURN_TO():
 	isToucheable = false;
 	$Label.text = "RETURN TO";
 	state_next = STATES.RETURN_TO;
+	animatePlayer.play("rest");
 
 func run_state_RETURN_TO(delta):
 	if global_position.distance_to(restZone.global_position) > 1:
@@ -112,10 +118,12 @@ func _follow(delta):
 func _selectCard(): 
 	z_index = 100;
 	isSelected = true;
+	animatePlayer.stop()
 
 func _deselectCard(): 
 	z_index = 50;
 	isSelected = false;
+	animatePlayer.stop()
 
 func setRestZone(rest):
 	restZone = rest;
@@ -141,7 +149,8 @@ func _changeRestZone():
 		setRestZone(nearestZone);
 		nearestZone.setCardRestInZone(self);
 	else:
-		self.restZone.setCardRestInZone(null)
+		if self.restZone:
+			self.restZone.setCardRestInZone(null)
 		setRestZone(nearestZone);
 		nearestZone.setCardRestInZone(self);
 

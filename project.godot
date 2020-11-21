@@ -19,6 +19,11 @@ config/name="DragCard"
 run/main_scene="res://scenes/mundo.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=800
+window/size/height=480
+
 [input]
 
 click={
