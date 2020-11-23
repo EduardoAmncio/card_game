@@ -2,17 +2,16 @@ extends Node2D
 
 var isSelected = false;
 var isToucheable = true;
+var isAnimationFinish = true;
 var count = 0;
 
 enum STATES  {REST, FOLLOW, GOING_TO, RETURN_TO}
-var state_current = null
-var state_next = null
-var state_preview = null
+var state_current = null;
+var state_next = null;
+var state_preview = null;
 
 var restZone: Node2D;
 var arrZoneEntered = [];
-
-onready var animatePlayer = $AnimationPlayer;
 
 func _ready():
 	z_index = 50;
@@ -51,8 +50,8 @@ func _physics_process(delta):
 func _initialize_rest():
 	isToucheable = true;
 	$Label.text = "REST";
+	z_index = 50;
 	state_next = STATES.REST;
-	animatePlayer.play("rest");
 
 func run_state_rest(delta):
 	if isSelected:
@@ -65,7 +64,6 @@ func _initialize_follow():
 	isToucheable = false;
 	$Label.text = "FOLLOW";
 	state_next = STATES.FOLLOW;
-	animatePlayer.play("follow");
 
 func run_state_follow(delta):
 	_follow(delta);
@@ -83,7 +81,6 @@ func _initialize_GOING_TO():
 	isToucheable = false;
 	$Label.text = "GOING TO";
 	state_next = STATES.GOING_TO;
-	animatePlayer.play("rest");
 
 func run_state_GOING_TO(delta):
 	if global_position.distance_to(restZone.global_position) > 1:
@@ -98,7 +95,6 @@ func _initialize_RETURN_TO():
 	isToucheable = false;
 	$Label.text = "RETURN TO";
 	state_next = STATES.RETURN_TO;
-	animatePlayer.play("rest");
 
 func run_state_RETURN_TO(delta):
 	if global_position.distance_to(restZone.global_position) > 1:
@@ -118,12 +114,10 @@ func _follow(delta):
 func _selectCard(): 
 	z_index = 100;
 	isSelected = true;
-	animatePlayer.stop()
+
 
 func _deselectCard(): 
-	z_index = 50;
 	isSelected = false;
-	animatePlayer.stop()
 
 func setRestZone(rest):
 	restZone = rest;
@@ -178,3 +172,14 @@ func _on_Area2D_area_exited(area):
 	if arrZoneEntered.has(restZone):
 		arrZoneEntered.remove(arrZoneEntered.find(restZone));
 
+
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	isAnimationFinish = true;
+	pass # Replace with function body.
+
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	isAnimationFinish = false;
+	pass # Replace with function body.

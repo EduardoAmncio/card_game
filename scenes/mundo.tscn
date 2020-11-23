@@ -11,16 +11,16 @@ script = ExtResource( 3 )
 [node name="cards" type="Node" parent="."]
 
 [node name="Card" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 115.294, 110.336 )
+position = Vector2( 58.1476, 7.15497 )
 
 [node name="Card3" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 110.799, 347.068 )
+position = Vector2( 52.0652, 467.711 )
 
 [node name="Card6" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 396.975, 465.435 )
+position = Vector2( 396.975, 489.246 )
 
 [node name="Card2" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 670.568, 115.235 )
+position = Vector2( 759.463, -10.1696 )
 
 [node name="Sprite2" type="Sprite" parent="cards/Card2"]
 position = Vector2( -0.0594368, 0.0792522 )
@@ -28,7 +28,7 @@ scale = Vector2( 4.0066, 4.0066 )
 texture = ExtResource( 4 )
 
 [node name="Card4" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 693.043, 341.479 )
+position = Vector2( 761.301, 466.884 )
 
 [node name="Sprite2" type="Sprite" parent="cards/Card4"]
 position = Vector2( -0.0594368, 0.0792522 )
@@ -36,7 +36,7 @@ scale = Vector2( 4.0066, 4.0066 )
 texture = ExtResource( 4 )
 
 [node name="Card5" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 358.92, 1.36362 )
+position = Vector2( 403.367, -68.4821 )
 
 [node name="Sprite2" type="Sprite" parent="cards/Card5"]
 position = Vector2( -0.0594368, 0.0792522 )
@@ -46,19 +46,19 @@ texture = ExtResource( 4 )
 [node name="dropZones" type="Node" parent="."]
 
 [node name="RestZone" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 200.637, 132.36 )
+position = Vector2( 153.015, 124.423 )
 
 [node name="RestZone4" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 197.641, 324.144 )
+position = Vector2( 153.194, 333.668 )
 
 [node name="RestZone5" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 384.929, 325.642 )
+position = Vector2( 400.803, 331.992 )
 
 [node name="RestZone6" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 578.211, 328.639 )
+position = Vector2( 641.707, 333.401 )
 
 [node name="RestZone2" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 578.333, 136.855 )
+position = Vector2( 641.829, 127.331 )
 
 [node name="RestZone3" parent="dropZones" instance=ExtResource( 2 )]
-position = Vector2( 376.062, 132.36 )
+position = Vector2( 395.111, 126.01 )
