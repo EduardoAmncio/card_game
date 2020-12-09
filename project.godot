@@ -19,10 +19,21 @@ config/name="DragCard"
 run/main_scene="res://scenes/mundo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Signals="*res://scenes/scripts/singleton/signals.gd"
+
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+
 [display]
 
-window/size/width=800
-window/size/height=480
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -34,8 +45,16 @@ click={
 
 [layer_names]
 
+2d_render/layer_1="player"
+2d_physics/layer_1="player"
+2d_render/layer_2="ground"
+2d_physics/layer_2="selectedWorld"
+2d_render/layer_3="obstacles"
+2d_physics/layer_3="descelectedWorld"
 2d_render/layer_6="cards"
-2d_render/layer_7="rest_zone"
+2d_physics/layer_6="card"
+2d_render/layer_7="restZone"
+2d_physics/layer_7="restZone"
 
 [rendering]
 

@@ -1,5 +1,6 @@
 extends Node2D
 
+
 #onready var arrCards = $cards.get_children();
 #onready var arrRestZones = $dropZones.get_children();
 

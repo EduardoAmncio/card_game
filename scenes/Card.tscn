@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://dragdrop.gd" type="Script" id=1]
-[ext_resource path="res://assets/imgs/card.png" type="Texture" id=2]
+[ext_resource path="res://assets/imgs/sky.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 37.9063, 49.6644 )
+extents = Vector2( 95.0627, 67.9536 )
 
 [sub_resource type="AnimationNodeStateMachine" id=2]
 
@@ -15,14 +15,17 @@ scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
+modulate = Color( 1, 0.835938, 0.932068, 1 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 2
+position = Vector2( -0.445435, 0.8909 )
+collision_layer = 32
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )

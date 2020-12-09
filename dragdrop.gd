@@ -1,5 +1,11 @@
 extends Node2D
 
+
+
+#signal card_is_stopped(card, valueOfState)
+
+
+
 var isSelected = false;
 var isToucheable = true;
 var isAnimationFinish = true;
@@ -20,6 +26,8 @@ func _ready():
 	state_current = -1;
 	state_preview = -1;
 	state_next = STATES.REST;
+	#Signals.connect("card_is_stopped", self, )
+
 
 
 func _physics_process(delta):
@@ -52,9 +60,15 @@ func _initialize_rest():
 	$Label.text = "REST";
 	z_index = 50;
 	state_next = STATES.REST;
+	
+	##emit_signal("card_is_stopped", self, true);
+	#Signals.connect("card_is_stopped", self, )
+	Signals.emit_signal("card_is_stopped",self, true)
 
 func run_state_rest(delta):
 	if isSelected:
+	##	emit_signal("card_is_stopped", self, false);
+		Signals.emit_signal("card_is_stopped",self, false)
 		_initialize_follow();
 
 
@@ -112,7 +126,7 @@ func _follow(delta):
 	global_position = lerp(self.global_position ,get_global_mouse_position(), 25.00 * delta);
 
 func _selectCard(): 
-	z_index = 100;
+	z_index = 300;
 	isSelected = true;
 
 
