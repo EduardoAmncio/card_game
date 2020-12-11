@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/imgs/sky.png" type="Texture" id=1]
 [ext_resource path="res://assets/imgs/ground.png" type="Texture" id=2]
 [ext_resource path="res://assets/imgs/skul.png" type="Texture" id=3]
+[ext_resource path="res://scenes/SensorEntrace.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 192.03, 11.6228 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 29.2882, 36.3034 )
+extents = Vector2( 2.927, 36.3034 )
 
 [node name="sceneTeste" type="Node2D"]
 
@@ -49,7 +50,7 @@ visible = false
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skul2"]
-position = Vector2( 0, 17.6866 )
+position = Vector2( 25.2371, 17.6866 )
 shape = SubResource( 2 )
 
 [node name="Skul3" type="KinematicBody2D" parent="."]
@@ -62,5 +63,12 @@ visible = false
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skul3"]
-position = Vector2( 0, 17.6866 )
+position = Vector2( -24.3494, 17.6866 )
 shape = SubResource( 2 )
+
+[node name="SensorEntrace" parent="." instance=ExtResource( 4 )]
+position = Vector2( -238, 69 )
+
+[node name="SensorEntrace2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 238, 69 )
+rotation = -3.14159

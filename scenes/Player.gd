@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+
+var canChangeScene = false;
+var respawnPosition = null;
+
 #Consts for moviment:
 const TARGET_FPS = 60
 const ACCELERATION = 2
@@ -13,7 +17,9 @@ var motion = Vector2.ZERO
 enum DIRECTION {LEFT=-1, RIGHT=1}
 
 #childreans nodes:
-onready var sprite = $Sprite
+#onready var catPlayer = $CatPlayer
+
+onready var label = $Label
 #onready var animationPlayer = $AnimationPlayer
 
 
@@ -108,16 +114,21 @@ func _walk(delta):
 	
 	
 	if is_on_wall():
-		if x_input == DIRECTION.RIGHT:
-			x_input = DIRECTION.LEFT;
-		else:
-			x_input = DIRECTION.RIGHT;
+		if not canChangeScene:
+			if x_input == DIRECTION.RIGHT:
+				x_input = DIRECTION.LEFT;
+			else:
+				x_input = DIRECTION.RIGHT;
+		elif !!respawnPosition:
+			global_position = respawnPosition;
 	
 	if x_input != 0:
 #		animationPlayer.play("Run")
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
-		sprite.flip_h = x_input < 0
+		#catPlayer.flip_h = x_input < 0
+
+
 #	else:
 #		animationPlayer.play("Stand")
 	
@@ -146,3 +157,15 @@ func _cardIsStopped(card, valueOfState):
 	#signal card_is_stopped(card, valueOfState)
 	set_physics_process(!!valueOfState);
 	pass
+
+
+func _on_Sensor_area_entered(area):
+	canChangeScene = true;
+	respawnPosition = area.returnRespawnPosition();
+	pass # Replace with function body.
+
+
+func _on_Sensor_area_exited(area):
+	canChangeScene = false;
+	respawnPosition = null;
+	pass # Replace with function body.

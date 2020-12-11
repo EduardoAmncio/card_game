@@ -55,6 +55,8 @@ click={
 2d_physics/layer_6="card"
 2d_render/layer_7="restZone"
 2d_physics/layer_7="restZone"
+2d_physics/layer_8="sensorEntrace"
+2d_physics/layer_9="playerSensor"
 
 [rendering]
 
