@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://CatPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/CatPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://scenes/particles/stars.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 59.8495, 46.1864 )
@@ -15,6 +16,10 @@ script = ExtResource( 2 )
 
 [node name="CatPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 60.5 )
+
+[node name="stars" parent="CatPlayer" instance=ExtResource( 3 )]
+position = Vector2( 2.16225, -13.9183 )
+scale = Vector2( 0.454545, 0.454545 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 78.645 )

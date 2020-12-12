@@ -7,7 +7,7 @@ var respawnPosition = null;
 #Consts for moviment:
 const TARGET_FPS = 60
 const ACCELERATION = 2
-const MAX_SPEED = 100
+const MAX_SPEED = 50
 const FRICTION = 5
 const AIR_RESISTANCE = 0
 const GRAVITY = 15
@@ -20,6 +20,7 @@ enum DIRECTION {LEFT=-1, RIGHT=1}
 #onready var catPlayer = $CatPlayer
 
 onready var label = $Label
+onready var player = $CatPlayer
 #onready var animationPlayer = $AnimationPlayer
 
 
@@ -38,8 +39,10 @@ func _ready():
 	state_next = STATES.WALK;
 	
 	x_input = DIRECTION.RIGHT;
+	player.flipRight()
 	
 	Signals.connect("card_is_stopped", self, "_cardIsStopped")
+	
 
 
 
@@ -117,8 +120,10 @@ func _walk(delta):
 		if not canChangeScene:
 			if x_input == DIRECTION.RIGHT:
 				x_input = DIRECTION.LEFT;
+				player.flipLeft()
 			else:
 				x_input = DIRECTION.RIGHT;
+				player.flipRight()
 		elif !!respawnPosition:
 			global_position = respawnPosition;
 	
@@ -126,6 +131,8 @@ func _walk(delta):
 #		animationPlayer.play("Run")
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
+		
+		
 		#catPlayer.flip_h = x_input < 0
 
 

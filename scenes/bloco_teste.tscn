@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="bloco_teste" type="Node2D"]
