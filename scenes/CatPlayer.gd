@@ -16,3 +16,9 @@ func flipRight():
 
 func walkCat():
 	animationPlayer.play("walk")
+	
+func goTo():
+	animationPlayer.play("go_to")
+
+func jump():
+	animationPlayer.play("Jump")

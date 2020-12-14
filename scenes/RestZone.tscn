@@ -11,7 +11,7 @@ scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.0666667 )
+modulate = Color( 1, 1, 1, 0.180392 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 
@@ -21,12 +21,3 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = -32.0
-margin_top = 64.899
-margin_right = 8.0
-margin_bottom = 78.899
-__meta__ = {
-"_edit_use_anchors_": false
-}

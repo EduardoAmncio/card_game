@@ -5,14 +5,18 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-onready var respawnPount = $RespawnPoint;
+#onready var respawnPount = $RespawnPoint;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func returnRespawnPosition():
-	return respawnPount.global_position
-	pass
+#func returnRespawnPosition():
+#	return respawnPount.global_position
+#	pass
+
+
+func returnSceneNode():
+	return get_parent();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

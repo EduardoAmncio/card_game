@@ -22,7 +22,6 @@ var arrZoneEntered = [];
 func _ready():
 	z_index = 50;
 	restZone = null;
-	$Label.text = "Sem Estado";
 	state_current = -1;
 	state_preview = -1;
 	state_next = STATES.REST;
@@ -57,7 +56,6 @@ func _physics_process(delta):
 #REST STATE:
 func _initialize_rest():
 	isToucheable = true;
-	$Label.text = "REST";
 	z_index = 50;
 	state_next = STATES.REST;
 	
@@ -76,7 +74,6 @@ func run_state_rest(delta):
 #FOLLOW STATE:
 func _initialize_follow():
 	isToucheable = false;
-	$Label.text = "FOLLOW";
 	state_next = STATES.FOLLOW;
 
 func run_state_follow(delta):
@@ -93,7 +90,7 @@ func run_state_follow(delta):
 #GOING_TO STATE:
 func _initialize_GOING_TO():
 	isToucheable = false;
-	$Label.text = "GOING TO";
+
 	state_next = STATES.GOING_TO;
 
 func run_state_GOING_TO(delta):
@@ -107,7 +104,6 @@ func run_state_GOING_TO(delta):
 #RETURN_TO STATE:
 func _initialize_RETURN_TO():
 	isToucheable = false;
-	$Label.text = "RETURN TO";
 	state_next = STATES.RETURN_TO;
 
 func run_state_RETURN_TO(delta):
@@ -167,6 +163,9 @@ func _changeRestZone():
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=TOUCH EVENTS=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 #===============================================================================
 func _on_Area2D_input_event(viewport, event, shape_idx):
+	if !Signals.canMoveCards:
+		return
+		
 	if isToucheable and Input.is_action_just_pressed("click"):
 		_selectCard();
 

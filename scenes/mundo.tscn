@@ -1,28 +1,34 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/RestZone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mundo.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sceneTeste.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/imgs/planet.png" type="Texture" id=6]
+[ext_resource path="res://scenes/fragments/FragmentNormal.tscn" type="PackedScene" id=7]
 
 [node name="mundo" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="planet" type="Sprite" parent="."]
+position = Vector2( 889, 86 )
+texture = ExtResource( 6 )
 
 [node name="cards" type="Node" parent="."]
 
 [node name="Card" parent="cards" instance=ExtResource( 1 )]
 position = Vector2( 211.667, 211.667 )
 
-[node name="Player" parent="cards/Card" instance=ExtResource( 4 )]
-position = Vector2( -70.6904, 22.7788 )
-scale = Vector2( 0.15, 0.15 )
-z_index = 200
-
 [node name="sceneTeste" parent="cards/Card" instance=ExtResource( 5 )]
 position = Vector2( -0.439301, 1.13637 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 150
+
+[node name="Player" parent="cards/Card/sceneTeste" instance=ExtResource( 4 )]
+position = Vector2( -140.502, 43.2849 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 200
 
 [node name="Card2" parent="cards" instance=ExtResource( 1 )]
 position = Vector2( 624.921, 211.667 )
@@ -42,7 +48,10 @@ position = Vector2( 214.187, 536.727 )
 position = Vector2( 637.521, 544.286 )
 
 [node name="Card6" parent="cards" instance=ExtResource( 1 )]
-position = Vector2( 1055.81, 546.806 )
+position = Vector2( 1172, 777 )
+
+[node name="FragmentNormal" parent="cards/Card6" instance=ExtResource( 7 )]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="dropZones" type="Node" parent="."]
 
