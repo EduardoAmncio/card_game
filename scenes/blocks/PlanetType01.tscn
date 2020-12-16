@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/imgs/planet01.png" type="Texture" id=1]
+[ext_resource path="res://assets/imgs/dots_circle.png" type="Texture" id=2]
+[ext_resource path="res://assets/imgs/moom1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/blocks/PlanetType01.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rotation"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Planet:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1.07177, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Moom:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
+}
+
+[node name="PlanetType01" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="OrbitDots" type="Sprite" parent="."]
+position = Vector2( -25, 24 )
+scale = Vector2( 0.66, 0.66 )
+texture = ExtResource( 2 )
+
+[node name="Moom" type="Sprite" parent="."]
+position = Vector2( -25, 24 )
+rotation = 3.24122
+scale = Vector2( 0.66, 0.66 )
+texture = ExtResource( 3 )
+offset = Vector2( 180.373, -101.103 )
+
+[node name="Planet" type="Sprite" parent="."]
+rotation = 2.8092
+scale = Vector2( 0.66, 0.66 )
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/rotation = SubResource( 1 )
