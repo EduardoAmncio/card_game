@@ -22,12 +22,24 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Moom:rotation_degrees")
+tracks/1/path = NodePath("MoonPivot/Moon:rotation_degrees")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MoonPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 20 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -42,15 +54,20 @@ position = Vector2( -25, 24 )
 scale = Vector2( 0.66, 0.66 )
 texture = ExtResource( 2 )
 
-[node name="Moom" type="Sprite" parent="."]
-position = Vector2( -25, 24 )
-rotation = 3.24122
+[node name="MoonPivot" type="Sprite" parent="."]
+position = Vector2( -28.565, 28.8402 )
+rotation = 4.51508
+offset = Vector2( -18.3527, -93.3164 )
+
+[node name="Moon" type="Sprite" parent="MoonPivot"]
+position = Vector2( -131.075, 7.62939e-06 )
+rotation = 3.62075
 scale = Vector2( 0.66, 0.66 )
 texture = ExtResource( 3 )
-offset = Vector2( 180.373, -101.103 )
+offset = Vector2( -3.05176e-05, 1.52588e-05 )
 
 [node name="Planet" type="Sprite" parent="."]
-rotation = 2.8092
+rotation = 1.05615
 scale = Vector2( 0.66, 0.66 )
 texture = ExtResource( 1 )
 
