@@ -25,7 +25,6 @@ Signals="*res://scenes/scripts/singleton/signals.gd"
 
 [debug]
 
-settings/fps/force_fps=60
 settings/stdout/print_fps=true
 
 [display]
@@ -62,5 +61,5 @@ click={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.160784, 0.2, 0.364706, 1 )
+environment/default_clear_color=Color( 0.243137, 0.211765, 0.34902, 1 )
 environment/default_environment="res://default_env.tres"

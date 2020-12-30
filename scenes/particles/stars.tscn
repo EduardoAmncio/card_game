@@ -54,6 +54,7 @@ hue_variation_random = 1.0
 hue_variation_curve = SubResource( 4 )
 
 [node name="stars" type="Particles2D"]
+emitting = false
 amount = 5
 speed_scale = 0.5
 randomness = 1.0

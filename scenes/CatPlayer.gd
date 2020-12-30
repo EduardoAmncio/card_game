@@ -22,3 +22,6 @@ func goTo():
 
 func jump():
 	animationPlayer.play("Jump")
+
+func fall():
+	animationPlayer.play("fall")

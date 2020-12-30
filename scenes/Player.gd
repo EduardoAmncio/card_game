@@ -20,10 +20,10 @@ enum DIRECTION {LEFT=-1, RIGHT=1}
 #childreans nodes:
 onready var player = $CatPlayer
 onready var particlesTrace = $ParticleTrace
-onready var particlesStars = $stars
+#onready var particlesStars = $stars
 
 #STATE CONTROLS:
-enum STATES {WALK, STOP, CHANGE_SCENE}
+enum STATES {WALK, STOP, CHANGE_SCENE, CHANGE_SCENE_ON_FALL}
 var state_current = null;
 var state_next = null;
 var state_preview = null;
@@ -34,13 +34,14 @@ var sceneToGo = null;
 var positionToGoUp = null;
 var positionToGoHorizon = null;
 
+
+var caindo = false;
+
 func _ready():
 	state_current = -1;
 	state_preview = -1;
 	state_next = STATES.WALK;
 	particlesTrace.emitting = false
-	particlesStars.emitting = false
-	
 	
 	actualScene = get_parent();
 	sceneToGo = get_parent();
@@ -65,23 +66,26 @@ func _physics_process(delta):
 		
 		STATES.CHANGE_SCENE:
 			_run_state_changeScene(delta);
+		
+		STATES.CHANGE_SCENE_ON_FALL:
+			_run_state_changeSceneOnFall(delta);
 
 
 #STATES:
-#------------------------state CHANGE SCENE-------------------------------------
-func _initialize_state_changeScene():
+#------------------------state CHANGE SCENE ON FALL-----------------------------
+func _initialize_state_changeSceneOnFall():
+	print("_initialize_state_changeSceneOnFall")
 	particlesTrace.emitting = true
-	particlesStars.emitting = true
+	#particlesStars.emitting = true
 	Signals.canMoveCards = false;
 	Signals.emit_signal("player_change_world", self, true)
-	state_next = STATES.CHANGE_SCENE;
-	player.jump()
+	state_next = STATES.CHANGE_SCENE_ON_FALL;
+	player.fall()
 
 
-func _run_state_changeScene(delta):
+func _run_state_changeSceneOnFall(delta):
 
 	if sceneToGo:
-		
 		canChangeScene = false
 		var lastPosition = global_position
 		positionToGoUp = Vector2(lastPosition.x, lastPosition.y -100);
@@ -96,21 +100,80 @@ func _run_state_changeScene(delta):
 	var continueMove = false
 	var moveHorizon = false
 
-	_jump(delta)
+	if !caindo:
+		_jump(delta)
 	
 	if is_on_floor():
+		
+
 		yield(get_tree().create_timer(0.8), "timeout")
 		_initialize_state_walk()
+		caindo = false
 		Signals.canMoveCards = true
 		Signals.emit_signal("player_change_world", self, false)
 		particlesTrace.emitting = false
-		particlesStars.emitting = false
+		#particlesStars.emitting = false
+		pass
+
+	pass;
+
+
+
+
+#STATES:
+#------------------------state CHANGE SCENE-------------------------------------
+func _initialize_state_changeScene():
+	print("_initialize_state_changeScene")
+	particlesTrace.emitting = true
+	#particlesStars.emitting = true
+	Signals.canMoveCards = false;
+	Signals.emit_signal("player_change_world", self, true)
+	state_next = STATES.CHANGE_SCENE;
+	if caindo:
+		player.fall()
+		pass
+	else:
+		player.jump()
+
+func _run_state_changeScene(delta):
+
+	if sceneToGo:
+		canChangeScene = false
+		var lastPosition = global_position
+		positionToGoUp = Vector2(lastPosition.x, lastPosition.y -100);
+		
+		actualScene.remove_child(self)
+		sceneToGo.add_child(self);
+		global_position = lastPosition
+		positionToGoHorizon = Vector2(sceneToGo.global_position.x, lastPosition.y -100);
+		actualScene = sceneToGo
+		sceneToGo = null
+
+	var continueMove = false
+	var moveHorizon = false
+
+
+	_jump(delta)
+	
+	if is_on_floor():
+		var timer = 0.8;
+		if caindo:
+			timer = 0.01;
+		if !caindo:
+			yield(get_tree().create_timer(timer), "timeout")
+		_initialize_state_walk()
+		caindo = false
+		Signals.canMoveCards = true
+		Signals.emit_signal("player_change_world", self, false)
+		particlesTrace.emitting = false
+		#particlesStars.emitting = false
 		pass
 
 	pass;
 
 #------------------------state STOP---------------------------------------------
 func _initialize_state_stop():
+	print("_initialize_state_stop")
 	state_next = STATES.STOP;
 
 func _run_state_stop(delta):
@@ -119,6 +182,7 @@ func _run_state_stop(delta):
 
 #------------------------state WALK---------------------------------------------
 func _initialize_state_walk():
+	print("_initialize_state_walk")
 	state_next = STATES.WALK;
 	player.walkCat()
 
@@ -127,6 +191,11 @@ func _run_state_walk(delta):
 	_walk(delta);
 	if canChangeScene and is_on_wall():
 		_initialize_state_changeScene();
+	elif canChangeScene and not is_on_floor():
+		#_initialize_state_changeSceneOnFall();
+		caindo = true
+		_initialize_state_changeScene();
+		
 	pass;
 
 func _walk(delta):
@@ -157,7 +226,7 @@ func _walk(delta):
 
 func _jump(delta):
 
-	if x_input != 0:
+	if x_input != 0 and !caindo:
 		var speedForJump = MAX_SPEED + 80
 		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 		motion.x = clamp(motion.x, speedForJump * x_input, speedForJump * x_input)
@@ -167,8 +236,9 @@ func _jump(delta):
 	if is_on_floor():
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, FRICTION * delta)
-		motion.y = -JUMP_FORCE
-	else:
+		if !caindo:
+			motion.y = -JUMP_FORCE
+	elif !caindo:
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 	

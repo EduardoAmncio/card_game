@@ -17,19 +17,19 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=5]
 max_value = 0.01
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 9 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0.0522727 ), 0.0, 5.93697, 0, 0, Vector2( 0.493671, 0.761364 ), 0.0, 0.0, 0, 0, Vector2( 0.987342, 0.025 ), -0.127273, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=9]
 emission_shape = 2
 emission_box_extents = Vector3( 640, 360, 1 )
 flag_disable_z = true
@@ -39,17 +39,17 @@ angular_velocity_random = 1.0
 angular_velocity_curve = SubResource( 2 )
 orbit_velocity = 0.01
 orbit_velocity_random = 1.0
-orbit_velocity_curve = SubResource( 5 )
+orbit_velocity_curve = SubResource( 6 )
 scale = 0.58
-scale_curve = SubResource( 7 )
+scale_curve = SubResource( 8 )
 hue_variation = -0.92
 hue_variation_random = 1.0
 hue_variation_curve = SubResource( 4 )
 
 [node name="StarsWorld" type="Particles2D"]
 position = Vector2( 639, 345 )
-amount = 20
+amount = 15
 lifetime = 6.0
 fixed_fps = 60
-process_material = SubResource( 8 )
+process_material = SubResource( 9 )
 texture = ExtResource( 1 )

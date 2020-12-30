@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/RestZone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mundo.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/fragments/FragmentNormal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fragments/FragmentHole.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/imgs/shadow.png" type="Texture" id=7]
 [ext_resource path="res://scenes/blocks/PlanetType01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/particles/StarsWorld.tscn" type="PackedScene" id=9]
@@ -15,18 +16,21 @@ script = ExtResource( 2 )
 [node name="dropZones" type="Node" parent="."]
 
 [node name="RestZone" parent="dropZones" instance=ExtResource( 1 )]
-position = Vector2( 216, 352 )
+position = Vector2( 216, 200 )
 
 [node name="RestZone2" parent="dropZones" instance=ExtResource( 1 )]
-position = Vector2( 640, 352 )
+position = Vector2( 640, 200 )
 
 [node name="RestZone3" parent="dropZones" instance=ExtResource( 1 )]
-position = Vector2( 1064, 352 )
+position = Vector2( 1064, 200 )
+
+[node name="RestZone4" parent="dropZones" instance=ExtResource( 1 )]
+position = Vector2( 640, 550 )
 
 [node name="cards" type="Node" parent="."]
 
 [node name="Card" parent="cards" instance=ExtResource( 3 )]
-position = Vector2( 216, 352 )
+position = Vector2( 216, 200 )
 
 [node name="shadow" type="Sprite" parent="cards/Card"]
 position = Vector2( 1.5, -4 )
@@ -41,11 +45,18 @@ position = Vector2( -144, 40 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Card2" parent="cards" instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 640, 353.782 )
+position = Vector2( 640, 550 )
+
+[node name="shadow" type="Sprite" parent="cards/Card2"]
+position = Vector2( 1.5, -4 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 7 )
+
+[node name="FragmentHole" parent="cards/Card2" instance=ExtResource( 6 )]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Card3" parent="cards" instance=ExtResource( 3 )]
-position = Vector2( 1064, 352 )
+position = Vector2( 1064, 200 )
 
 [node name="shadow2" type="Sprite" parent="cards/Card3"]
 position = Vector2( 0, -3 )
@@ -56,6 +67,7 @@ texture = ExtResource( 7 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="PlanetType01" parent="." instance=ExtResource( 8 )]
-position = Vector2( 864, 112 )
+position = Vector2( 215.109, 561.841 )
 
 [node name="StarsWorld" parent="." instance=ExtResource( 9 )]
+position = Vector2( 725.765, 409.483 )
