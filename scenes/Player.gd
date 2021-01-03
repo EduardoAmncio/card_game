@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 
 var canChangeScene = false;
+var getCrystal = false;
 
 #Consts for moviment:
 const TARGET_FPS = 60
@@ -23,7 +24,7 @@ onready var particlesTrace = $ParticleTrace
 #onready var particlesStars = $stars
 
 #STATE CONTROLS:
-enum STATES {WALK, STOP, CHANGE_SCENE, CHANGE_SCENE_ON_FALL}
+enum STATES {WALK, STOP, CHANGE_SCENE, FINISHI_WORLD}
 var state_current = null;
 var state_next = null;
 var state_preview = null;
@@ -67,65 +68,29 @@ func _physics_process(delta):
 		STATES.CHANGE_SCENE:
 			_run_state_changeScene(delta);
 		
-		STATES.CHANGE_SCENE_ON_FALL:
-			_run_state_changeSceneOnFall(delta);
+		STATES.FINISHI_WORLD:
+			_run_state_finishWorld(delta);
 
 
 #STATES:
-#------------------------state CHANGE SCENE ON FALL-----------------------------
-func _initialize_state_changeSceneOnFall():
-	print("_initialize_state_changeSceneOnFall")
-	particlesTrace.emitting = true
-	#particlesStars.emitting = true
-	Signals.canMoveCards = false;
-	Signals.emit_signal("player_change_world", self, true)
-	state_next = STATES.CHANGE_SCENE_ON_FALL;
-	player.fall()
+#------------------------state CHANGE FINISH WORLD------------------------------
+func _initialize_state_finishWorld():
+	state_next = STATES.FINISHI_WORLD
+	player.goTo()
+	SceneChanger.change_scene("res://scenes/worlds/World01.tscn")
+	pass
 
-
-func _run_state_changeSceneOnFall(delta):
-
-	if sceneToGo:
-		canChangeScene = false
-		var lastPosition = global_position
-		positionToGoUp = Vector2(lastPosition.x, lastPosition.y -100);
-		
-		actualScene.remove_child(self)
-		sceneToGo.add_child(self);
-		global_position = lastPosition
-		positionToGoHorizon = Vector2(sceneToGo.global_position.x, lastPosition.y -100);
-		actualScene = sceneToGo
-		sceneToGo = null
-
-	var continueMove = false
-	var moveHorizon = false
-
-	if !caindo:
-		_jump(delta)
-	
-	if is_on_floor():
-		
-
-		yield(get_tree().create_timer(0.8), "timeout")
-		_initialize_state_walk()
-		caindo = false
-		Signals.canMoveCards = true
-		Signals.emit_signal("player_change_world", self, false)
-		particlesTrace.emitting = false
-		#particlesStars.emitting = false
-		pass
-
-	pass;
-
-
-
+func _run_state_finishWorld(delta):
+	motion.x = 0
+	motion.y = -(JUMP_FORCE / 16)
+	motion = move_and_slide(motion, Vector2.UP)
+	pass
 
 #STATES:
 #------------------------state CHANGE SCENE-------------------------------------
 func _initialize_state_changeScene():
-	print("_initialize_state_changeScene")
+	
 	particlesTrace.emitting = true
-	#particlesStars.emitting = true
 	Signals.canMoveCards = false;
 	Signals.emit_signal("player_change_world", self, true)
 	state_next = STATES.CHANGE_SCENE;
@@ -195,7 +160,9 @@ func _run_state_walk(delta):
 		#_initialize_state_changeSceneOnFall();
 		caindo = true
 		_initialize_state_changeScene();
-		
+	elif getCrystal:
+		_initialize_state_finishWorld();
+	
 	pass;
 
 func _walk(delta):
@@ -276,3 +243,13 @@ func _on_Sensor_area_exited(area):
 	canChangeScene = false;
 	sceneToGo = null;
 	pass
+
+
+func _on_SensorCrystal_area_entered(area):
+	getCrystal = true
+	pass # Replace with function body.
+
+
+func _on_SensorCrystal_area_exited(area):
+	getCrystal = false
+	pass # Replace with function body.

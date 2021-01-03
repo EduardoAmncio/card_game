@@ -25,3 +25,6 @@ func jump():
 
 func fall():
 	animationPlayer.play("fall")
+	
+func death():
+	animationPlayer.play("death")

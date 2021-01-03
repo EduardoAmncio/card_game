@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/RestZone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mundo.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/imgs/shadow.png" type="Texture" id=7]
 [ext_resource path="res://scenes/blocks/PlanetType01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/particles/StarsWorld.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/blocks/Crystal.tscn" type="PackedScene" id=10]
 
 [node name="World01" type="Node2D"]
 script = ExtResource( 2 )
@@ -65,6 +66,10 @@ texture = ExtResource( 7 )
 
 [node name="FragmentNormal" parent="cards/Card3" instance=ExtResource( 4 )]
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Crystal" parent="cards/Card3/FragmentNormal" instance=ExtResource( 10 )]
+position = Vector2( 0.109131, 40 )
+scale = Vector2( 0.6, 0.7 )
 
 [node name="PlanetType01" parent="." instance=ExtResource( 8 )]
 position = Vector2( 215.109, 561.841 )

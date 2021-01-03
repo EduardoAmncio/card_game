@@ -16,12 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="DragCard"
-run/main_scene="res://scenes/worlds/World01.tscn"
+run/main_scene="res://scenes/worlds/World02.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Signals="*res://scenes/scripts/singleton/signals.gd"
+SceneChanger="*res://scenes/SceneChanger.tscn"
 
 [debug]
 
@@ -58,6 +59,7 @@ click={
 2d_physics/layer_7="restZone"
 2d_physics/layer_8="sensorEntrace"
 2d_physics/layer_9="playerSensor"
+2d_physics/layer_10="crystal"
 
 [rendering]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/CatPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
@@ -32,6 +32,9 @@ extents = Vector2( 59.8495, 46.1864 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 86.0698, 23.93 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 17.5445, 26.7073 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 130
@@ -69,13 +72,24 @@ emitting = true
 position = Vector2( 0, 78.645 )
 shape = SubResource( 6 )
 
-[node name="Sensor" type="Area2D" parent="."]
+[node name="SensorWorld" type="Area2D" parent="."]
 position = Vector2( 0, -28.4678 )
 collision_layer = 256
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorWorld"]
 position = Vector2( -0.825001, 37.5428 )
 shape = SubResource( 7 )
-[connection signal="area_entered" from="Sensor" to="." method="_on_Sensor_area_entered"]
-[connection signal="area_exited" from="Sensor" to="." method="_on_Sensor_area_exited"]
+
+[node name="SensorCrystal" type="Area2D" parent="."]
+position = Vector2( 0, -152.344 )
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorCrystal"]
+position = Vector2( 0, 219.407 )
+shape = SubResource( 8 )
+[connection signal="area_entered" from="SensorWorld" to="." method="_on_Sensor_area_entered"]
+[connection signal="area_exited" from="SensorWorld" to="." method="_on_Sensor_area_exited"]
+[connection signal="area_entered" from="SensorCrystal" to="." method="_on_SensorCrystal_area_entered"]
+[connection signal="area_exited" from="SensorCrystal" to="." method="_on_SensorCrystal_area_exited"]
