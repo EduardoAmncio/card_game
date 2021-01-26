@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="DragCard"
-run/main_scene="res://scenes/worlds/World02.tscn"
+run/main_scene="res://scenes/worlds/World01.tscn"
 config/icon="res://icon.png"
 
 [autoload]

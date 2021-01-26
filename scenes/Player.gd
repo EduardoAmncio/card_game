@@ -77,7 +77,10 @@ func _physics_process(delta):
 func _initialize_state_finishWorld():
 	state_next = STATES.FINISHI_WORLD
 	player.goTo()
-	SceneChanger.change_scene("res://scenes/worlds/World01.tscn")
+	#print(actualScene.returnNextScene())
+	print(get_tree().get_root().get_node("World").returnNextScene())
+	
+	SceneChanger.change_scene(get_tree().get_root().get_node("World").returnNextScene());
 	pass
 
 func _run_state_finishWorld(delta):

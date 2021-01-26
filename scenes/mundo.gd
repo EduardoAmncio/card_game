@@ -4,6 +4,8 @@ extends Node2D
 #onready var arrCards = $cards.get_children();
 #onready var arrRestZones = $dropZones.get_children();
 
+export var next_scene_world = "res://scenes/worlds/World01.tscn";
+
 func _ready():
 	initScene();
 
@@ -11,6 +13,8 @@ func _ready():
 func initScene():
 	setAllCardsInRestZones();
 
+func returnNextScene():
+	return next_scene_world;
 
 func setAllCardsInRestZones():
 	var nearestZone = null;

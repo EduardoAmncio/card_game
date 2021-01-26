@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/RestZone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mundo.gd" type="Script" id=2]
@@ -9,9 +9,11 @@
 [ext_resource path="res://assets/imgs/shadow.png" type="Texture" id=7]
 [ext_resource path="res://scenes/blocks/PlanetType01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/particles/StarsWorld.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/fragments/FragmentColun.tscn" type="PackedScene" id=10]
 
-[node name="World01" type="Node2D"]
+[node name="World" type="Node2D"]
 script = ExtResource( 2 )
+next_scene_world = "res://scenes/worlds/World02.tscn"
 
 [node name="dropZones" type="Node" parent="."]
 
@@ -42,8 +44,10 @@ position = Vector2( -144, 40 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Card2" parent="cards" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 640, 353.782 )
+
+[node name="FragmentColun" parent="cards/Card2" instance=ExtResource( 10 )]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Card3" parent="cards" instance=ExtResource( 3 )]
 position = Vector2( 1064, 352 )
