@@ -28,3 +28,6 @@ func fall():
 	
 func death():
 	animationPlayer.play("death")
+	
+func die():
+	animationPlayer.play("die")

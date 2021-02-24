@@ -26,6 +26,7 @@ SceneChanger="*res://scenes/SceneChanger.tscn"
 
 [debug]
 
+settings/fps/force_fps=60
 settings/stdout/print_fps=true
 
 [display]
@@ -60,8 +61,10 @@ click={
 2d_physics/layer_8="sensorEntrace"
 2d_physics/layer_9="playerSensor"
 2d_physics/layer_10="crystal"
+2d_physics/layer_11="sensorDeath"
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0.243137, 0.211765, 0.34902, 1 )
 environment/default_environment="res://default_env.tres"

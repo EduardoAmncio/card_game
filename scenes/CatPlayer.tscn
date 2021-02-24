@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/imgs/cat/earBack.png" type="Texture" id=1]
 [ext_resource path="res://assets/imgs/cat/armRightBack.png" type="Texture" id=2]
@@ -11,12 +11,46 @@
 [ext_resource path="res://assets/imgs/cat/armLeftFront.png" type="Texture" id=9]
 [ext_resource path="res://assets/imgs/cat/armRightFront.png" type="Texture" id=10]
 [ext_resource path="res://scenes/CatPlayer.gd" type="Script" id=11]
+[ext_resource path="res://assets/imgs/cat/dieSprites/04.png" type="Texture" id=12]
+[ext_resource path="res://assets/imgs/cat/dieSprites/05.png" type="Texture" id=13]
+[ext_resource path="res://assets/imgs/cat/dieSprites/03.png" type="Texture" id=14]
+[ext_resource path="res://assets/imgs/cat/dieSprites/02.png" type="Texture" id=15]
+[ext_resource path="res://assets/imgs/cat/dieSprites/01.png" type="Texture" id=16]
+[ext_resource path="res://assets/imgs/cat/dieSprites/06.png" type="Texture" id=17]
+[ext_resource path="res://assets/imgs/cat/dieSprites/07.png" type="Texture" id=18]
+[ext_resource path="res://assets/imgs/cat/dieSprites/08.png" type="Texture" id=19]
+[ext_resource path="res://assets/imgs/cat/dieSprites/10.png" type="Texture" id=20]
+[ext_resource path="res://assets/imgs/cat/dieSprites/09.png" type="Texture" id=21]
+[ext_resource path="res://assets/imgs/cat/dieSprites/17.png" type="Texture" id=22]
+[ext_resource path="res://assets/imgs/cat/dieSprites/13.png" type="Texture" id=23]
+[ext_resource path="res://assets/imgs/cat/dieSprites/11.png" type="Texture" id=24]
+[ext_resource path="res://assets/imgs/cat/dieSprites/14.png" type="Texture" id=25]
+[ext_resource path="res://assets/imgs/cat/dieSprites/15.png" type="Texture" id=26]
+[ext_resource path="res://assets/imgs/cat/dieSprites/16.png" type="Texture" id=27]
+[ext_resource path="res://assets/imgs/cat/dieSprites/12.png" type="Texture" id=28]
+[ext_resource path="res://assets/imgs/cat/dieSprites/22.png" type="Texture" id=29]
+[ext_resource path="res://assets/imgs/cat/dieSprites/20.png" type="Texture" id=30]
+[ext_resource path="res://assets/imgs/cat/dieSprites/19.png" type="Texture" id=31]
+[ext_resource path="res://assets/imgs/cat/dieSprites/18.png" type="Texture" id=32]
+[ext_resource path="res://assets/imgs/cat/dieSprites/21.png" type="Texture" id=33]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Jump"
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "end",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
 length = 0.8
 tracks/0/type = "value"
-tracks/0/path = NodePath("face:position")
+tracks/0/path = NodePath("sprites/face:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -28,7 +62,7 @@ tracks/0/keys = {
 "values": [ Vector2( -52.7273, -31.8182 ), Vector2( -60, -56.3636 ), Vector2( -59.0909, -59.0909 ), Vector2( -60.1307, -60.8376 ), Vector2( -59.0909, -59.0909 ), Vector2( -70, -17.2727 ), Vector2( -52.7273, -31.8182 ), Vector2( -70.9037, -18.0821 ), Vector2( -70, -17.2727 ), Vector2( -52.7273, -31.8182 ), Vector2( -52.7273, -28.1818 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("face:rotation_degrees")
+tracks/1/path = NodePath("sprites/face:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -40,7 +74,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 0.0, 2.1, 0.0, 0.0, 3.6, 0.0, 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("earBack:position")
+tracks/2/path = NodePath("sprites/earBack:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -52,7 +86,7 @@ tracks/2/keys = {
 "values": [ Vector2( -71.8182, -60 ), Vector2( -66.3636, -71.8182 ), Vector2( -56.3708, -84.7738 ), Vector2( -56.3708, -84.7738 ), Vector2( -73.6364, -55.4545 ), Vector2( -73.6364, -55.4545 ), Vector2( -73.6364, -55.4545 ), Vector2( -71.8182, -56.3636 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("earBack:rotation_degrees")
+tracks/3/path = NodePath("sprites/earBack:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -64,7 +98,7 @@ tracks/3/keys = {
 "values": [ 0.0, 0.0, 46.8, 56.2, 46.8, 0.0, 22.4, 0.0, 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("head:position")
+tracks/4/path = NodePath("sprites/head:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -76,7 +110,7 @@ tracks/4/keys = {
 "values": [ Vector2( -32.7273, 2.72727 ), Vector2( -33.6364, -10.9091 ), Vector2( -28.5317, -18.3686 ), Vector2( -28.5317, -18.3686 ), Vector2( -40, 7.27273 ), Vector2( -40, 7.27273 ), Vector2( -40, 7.27273 ), Vector2( -32.7273, 6.36363 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("head:rotation_degrees")
+tracks/5/path = NodePath("sprites/head:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -88,7 +122,7 @@ tracks/5/keys = {
 "values": [ 0.0, 5.4, 5.4, 6.4, 5.4, 0.0, 3.5, 0.0, 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("earFront:position")
+tracks/6/path = NodePath("sprites/earFront:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -100,7 +134,7 @@ tracks/6/keys = {
 "values": [ Vector2( -15.5353, -56.5009 ), Vector2( -18.8141, -71.735 ), Vector2( -12.3695, -76.2514 ), Vector2( -12.3695, -76.2514 ), Vector2( -28.7395, -51.5371 ), Vector2( -28.7395, -51.5371 ), Vector2( -28.7395, -51.5371 ), Vector2( -16.5251, -53.0018 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("earFront:rotation_degrees")
+tracks/7/path = NodePath("sprites/earFront:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -112,7 +146,7 @@ tracks/7/keys = {
 "values": [ -7.89725, -7.89725, 18.1, 29.8, 18.1, 3.3, 23.1, 3.3, -7.89725 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("armLeftFront:position")
+tracks/8/path = NodePath("sprites/armLeftFront:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -124,7 +158,7 @@ tracks/8/keys = {
 "values": [ Vector2( -3.63636, 17.2727 ), Vector2( -14.8178, 13.3912 ), Vector2( -25.9833, 12.9076 ), Vector2( -25.9833, 12.9076 ), Vector2( -9.19131, 20.7232 ), Vector2( -8.61483, 24.7975 ), Vector2( -9.19131, 20.7232 ), Vector2( -5.49422, 20.2659 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("armLeftFront:rotation_degrees")
+tracks/9/path = NodePath("sprites/armLeftFront:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -160,7 +194,7 @@ tracks/11/keys = {
 "values": [ 0.0, 0.0, 0.0, 0.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("armRightBack:position")
+tracks/12/path = NodePath("sprites/armRightBack:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -172,7 +206,7 @@ tracks/12/keys = {
 "values": [ Vector2( 29.5454, 30 ), Vector2( 28.1818, 38.1818 ), Vector2( 28.1818, 38.1818 ), Vector2( 30.1074, 22.7348 ), Vector2( 30.1074, 22.7348 ), Vector2( 30.1074, 22.7348 ), Vector2( 29.5454, 33.6364 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("armRightBack:rotation_degrees")
+tracks/13/path = NodePath("sprites/armRightBack:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -184,7 +218,7 @@ tracks/13/keys = {
 "values": [ 0.0, -32.7, -32.7, -94.0, -102.9, -94.0, 0.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("armLeftBack:position")
+tracks/14/path = NodePath("sprites/armLeftBack:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -196,7 +230,7 @@ tracks/14/keys = {
 "values": [ Vector2( -51.8182, 19.0909 ), Vector2( -52.428, 15.3926 ), Vector2( -48.4393, -0.782402 ), Vector2( -48.4393, -0.782402 ), Vector2( -51.8182, 19.0909 ), Vector2( -51.8182, 19.0909 ), Vector2( -51.8182, 19.0909 ), Vector2( -52.9056, 22.5609 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("armLeftBack:rotation_degrees")
+tracks/15/path = NodePath("sprites/armLeftBack:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -208,7 +242,7 @@ tracks/15/keys = {
 "values": [ -8.70002, 11.7, 87.7, 101.8, 87.7, 26.0, 40.8, 26.0, -8.70002 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("body:position")
+tracks/16/path = NodePath("sprites/body:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -220,7 +254,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 3.63636 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("body:rotation_degrees")
+tracks/17/path = NodePath("sprites/body:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -232,7 +266,7 @@ tracks/17/keys = {
 "values": [ 0.0, 21.0, 21.0, 21.0, -16.9, -16.9, -16.9, 0.0 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("armRightFront:position")
+tracks/18/path = NodePath("sprites/armRightFront:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -244,7 +278,7 @@ tracks/18/keys = {
 "values": [ Vector2( 54.5335, 21.2538 ), Vector2( 44.2931, 31.2062 ), Vector2( 35.3794, 37.7223 ), Vector2( 35.3794, 37.7223 ), Vector2( 54.5294, 7.6524 ), Vector2( 54.5294, 7.6524 ), Vector2( 54.5294, 7.6524 ), Vector2( 53.4798, 24.7549 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("armRightFront:rotation_degrees")
+tracks/19/path = NodePath("sprites/armRightFront:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -256,7 +290,7 @@ tracks/19/keys = {
 "values": [ 8.70002, 43.0, -32.7, -28.5, -32.7, -84.2, -96.4, -84.2, 8.70002 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("tail:position")
+tracks/20/path = NodePath("sprites/tail:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -268,7 +302,7 @@ tracks/20/keys = {
 "values": [ Vector2( 51.0405, -14.1145 ), Vector2( 52.416, -7.97798 ), Vector2( 53.0568, 7.84096 ), Vector2( 53.0568, 7.84096 ), Vector2( 48.0546, -10.6873 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("tail:rotation_degrees")
+tracks/21/path = NodePath("sprites/tail:rotation_degrees")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -280,7 +314,7 @@ tracks/21/keys = {
 "values": [ 46.5, 37.5, 81.9, 76.3, 81.9, 35.2, 35.2, 35.2, 38.9667 ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("armRightFront:scale")
+tracks/22/path = NodePath("sprites/armRightFront:scale")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -292,7 +326,7 @@ tracks/22/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( -1, 1 ), Vector2( -1, 1 ), Vector2( -1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ) ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("tail:scale")
+tracks/23/path = NodePath("sprites/tail:scale")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -304,7 +338,7 @@ tracks/23/keys = {
 "values": [ Vector2( -1.568, 1.568 ), Vector2( -1.568, 1.568 ), Vector2( -1.568, 1.568 ), Vector2( -1.568, 1.568 ) ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("armLeftFront:scale")
+tracks/24/path = NodePath("sprites/armLeftFront:scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -316,7 +350,7 @@ tracks/24/keys = {
 "values": [ Vector2( 1.54039, 1.38596 ), Vector2( 1.54039, 1.38596 ), Vector2( 1.54039, 1.38596 ) ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("body:scale")
+tracks/25/path = NodePath("sprites/body:scale")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -328,7 +362,7 @@ tracks/25/keys = {
 "values": [ Vector2( 1.1, 1.1 ), Vector2( 1.1, 1.1 ), Vector2( 1.1, 1.1 ), Vector2( 1.1, 1.1 ) ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("head:scale")
+tracks/26/path = NodePath("sprites/head:scale")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -340,7 +374,7 @@ tracks/26/keys = {
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
 tracks/27/type = "value"
-tracks/27/path = NodePath("armLeftBack:scale")
+tracks/27/path = NodePath("sprites/armLeftBack:scale")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/imported = false
@@ -352,7 +386,7 @@ tracks/27/keys = {
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
 tracks/28/type = "value"
-tracks/28/path = NodePath("armRightBack:scale")
+tracks/28/path = NodePath("sprites/armRightBack:scale")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/imported = false
@@ -364,7 +398,7 @@ tracks/28/keys = {
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
 tracks/29/type = "value"
-tracks/29/path = NodePath("face:scale")
+tracks/29/path = NodePath("sprites/face:scale")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/imported = false
@@ -376,7 +410,7 @@ tracks/29/keys = {
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
 tracks/30/type = "value"
-tracks/30/path = NodePath("earBack:scale")
+tracks/30/path = NodePath("sprites/earBack:scale")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/imported = false
@@ -388,7 +422,7 @@ tracks/30/keys = {
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
 tracks/31/type = "value"
-tracks/31/path = NodePath("earFront:scale")
+tracks/31/path = NodePath("sprites/earFront:scale")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/imported = false
@@ -399,9 +433,32 @@ tracks/31/keys = {
 "update": 0,
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
+tracks/32/type = "value"
+tracks/32/path = NodePath("spritesDie:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("sprites:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=2]
-resource_name = "death"
+[sub_resource type="Animation" id=3]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -429,7 +486,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 718.6 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("armLeftBack:position")
+tracks/2/path = NodePath("sprites/armLeftBack:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -441,7 +498,7 @@ tracks/2/keys = {
 "values": [ Vector2( -51.8182, 19.0909 ), Vector2( -51.8182, 19.0909 ), Vector2( -48.5426, 19.2116 ), Vector2( -48.5426, 19.2116 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("armLeftBack:rotation_degrees")
+tracks/3/path = NodePath("sprites/armLeftBack:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -453,7 +510,7 @@ tracks/3/keys = {
 "values": [ -8.7, 20.1, -17.9, -17.9 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("tail:position")
+tracks/4/path = NodePath("sprites/tail:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -465,7 +522,7 @@ tracks/4/keys = {
 "values": [ Vector2( 45, -12.2727 ), Vector2( 44.632, -10.3796 ), Vector2( 44.632, -10.3796 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("tail:rotation_degrees")
+tracks/5/path = NodePath("sprites/tail:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -477,7 +534,7 @@ tracks/5/keys = {
 "values": [ 9.6, 73.0, 73.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("armRightBack:position")
+tracks/6/path = NodePath("sprites/armRightBack:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -489,7 +546,7 @@ tracks/6/keys = {
 "values": [ Vector2( 29.5454, 30 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("armRightBack:rotation_degrees")
+tracks/7/path = NodePath("sprites/armRightBack:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -501,7 +558,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("earBack:position")
+tracks/8/path = NodePath("sprites/earBack:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -513,7 +570,7 @@ tracks/8/keys = {
 "values": [ Vector2( -71.8182, -60 ), Vector2( -72.2227, -60.4153 ), Vector2( -71.099, -47.8998 ), Vector2( -71.099, -47.8998 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("earBack:rotation_degrees")
+tracks/9/path = NodePath("sprites/earBack:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -525,7 +582,7 @@ tracks/9/keys = {
 "values": [ 0.0, -3.9, -2.6, -2.6 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("body:position")
+tracks/10/path = NodePath("sprites/body:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -537,7 +594,7 @@ tracks/10/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("body:rotation_degrees")
+tracks/11/path = NodePath("sprites/body:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -549,7 +606,7 @@ tracks/11/keys = {
 "values": [ 0.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("head:position")
+tracks/12/path = NodePath("sprites/head:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -561,7 +618,7 @@ tracks/12/keys = {
 "values": [ Vector2( -32.7273, 2.72727 ), Vector2( -30.9091, 9.09091 ), Vector2( -30.9091, 9.09091 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("head:rotation_degrees")
+tracks/13/path = NodePath("sprites/head:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -573,7 +630,7 @@ tracks/13/keys = {
 "values": [ 0.0, 0.0, 0.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("armRightFront:position")
+tracks/14/path = NodePath("sprites/armRightFront:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -585,7 +642,7 @@ tracks/14/keys = {
 "values": [ Vector2( 54.5335, 21.2538 ), Vector2( 55.7885, 19.266 ), Vector2( 51.4347, 20.6103 ), Vector2( 51.4347, 20.6103 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("armRightFront:rotation_degrees")
+tracks/15/path = NodePath("sprites/armRightFront:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -597,7 +654,7 @@ tracks/15/keys = {
 "values": [ 8.7, -4.6, 17.6, 17.6 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("earFront:position")
+tracks/16/path = NodePath("sprites/earFront:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -609,7 +666,7 @@ tracks/16/keys = {
 "values": [ Vector2( -15.5353, -56.5009 ), Vector2( -12.7148, -47.7084 ), Vector2( -12.7148, -47.7084 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("earFront:rotation_degrees")
+tracks/17/path = NodePath("sprites/earFront:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -621,7 +678,7 @@ tracks/17/keys = {
 "values": [ -7.89725, -8.28057, -8.28057 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("armLeftFront:position")
+tracks/18/path = NodePath("sprites/armLeftFront:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -633,7 +690,7 @@ tracks/18/keys = {
 "values": [ Vector2( -3.63636, 17.2727 ), Vector2( -3.63636, 17.2727 ), Vector2( -12.6377, 14.4302 ), Vector2( -12.6377, 14.4302 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("armLeftFront:rotation_degrees")
+tracks/19/path = NodePath("sprites/armLeftFront:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -645,7 +702,7 @@ tracks/19/keys = {
 "values": [ -17.3, -1.7, -38.4, -38.4 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("face:position")
+tracks/20/path = NodePath("sprites/face:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -657,7 +714,7 @@ tracks/20/keys = {
 "values": [ Vector2( -52.7273, -31.8182 ), Vector2( -52.7273, -20.9091 ), Vector2( -52.7273, -20.9091 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("face:rotation_degrees")
+tracks/21/path = NodePath("sprites/face:rotation_degrees")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -680,12 +737,90 @@ tracks/22/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.890196, 0.0588235, 0.52549, 1 ), Color( 0.952941, 0.282353, 0.92549, 1 ), Color( 0.219608, 0.227451, 0.862745, 1 ), Color( 0.356863, 0.823529, 0.886275, 1 ), Color( 0.227451, 0.909804, 0.270588, 1 ), Color( 0.890196, 0.0588235, 0.52549, 1 ), Color( 0.952941, 0.282353, 0.92549, 1 ), Color( 0.219608, 0.227451, 0.862745, 1 ) ]
 }
+tracks/23/type = "value"
+tracks/23/path = NodePath("sprites:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
+resource_name = "die"
+length = 2.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("spritesDie:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprites:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("spritesDie/AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 1, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.925 ),
+"transitions": PoolRealArray( 0.170755, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 4, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("spritesDie/AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "default", "end" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("spritesDie/AnimatedSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 2.72727, -19.0909 ), Vector2( 1.36364, -9.54545 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("face:position")
+tracks/0/path = NodePath("sprites/face:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -697,7 +832,7 @@ tracks/0/keys = {
 "values": [ Vector2( -70.9037, -18.0821 ), Vector2( -69.9082, -21.8272 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("face:rotation_degrees")
+tracks/1/path = NodePath("sprites/face:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -709,7 +844,7 @@ tracks/1/keys = {
 "values": [ 3.6 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("head:position")
+tracks/2/path = NodePath("sprites/head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -721,7 +856,7 @@ tracks/2/keys = {
 "values": [ Vector2( -40, 7.27273 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("head:rotation_degrees")
+tracks/3/path = NodePath("sprites/head:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -733,7 +868,7 @@ tracks/3/keys = {
 "values": [ 3.5 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("tail:position")
+tracks/4/path = NodePath("sprites/tail:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -745,7 +880,7 @@ tracks/4/keys = {
 "values": [ Vector2( 50.5557, -1.42317 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("tail:rotation_degrees")
+tracks/5/path = NodePath("sprites/tail:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -757,7 +892,7 @@ tracks/5/keys = {
 "values": [ 35.2, 46.9, 36.4 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("armRightFront:position")
+tracks/6/path = NodePath("sprites/armRightFront:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -769,7 +904,7 @@ tracks/6/keys = {
 "values": [ Vector2( 54.5294, 7.6524 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("armRightFront:rotation_degrees")
+tracks/7/path = NodePath("sprites/armRightFront:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -781,7 +916,7 @@ tracks/7/keys = {
 "values": [ -96.4, -107.5, -100.1 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("earBack:position")
+tracks/8/path = NodePath("sprites/earBack:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -793,7 +928,7 @@ tracks/8/keys = {
 "values": [ Vector2( -73.6364, -55.4545 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("earBack:rotation_degrees")
+tracks/9/path = NodePath("sprites/earBack:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -805,7 +940,7 @@ tracks/9/keys = {
 "values": [ 22.4, 9.0, 31.6 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("armLeftBack:position")
+tracks/10/path = NodePath("sprites/armLeftBack:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -817,7 +952,7 @@ tracks/10/keys = {
 "values": [ Vector2( -51.8182, 19.0909 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("armLeftBack:rotation_degrees")
+tracks/11/path = NodePath("sprites/armLeftBack:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -829,7 +964,7 @@ tracks/11/keys = {
 "values": [ 40.8, 70.8, 39.9 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("armLeftFront:position")
+tracks/12/path = NodePath("sprites/armLeftFront:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -841,7 +976,7 @@ tracks/12/keys = {
 "values": [ Vector2( -8.61483, 24.7975 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("armLeftFront:rotation_degrees")
+tracks/13/path = NodePath("sprites/armLeftFront:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -853,7 +988,7 @@ tracks/13/keys = {
 "values": [ 27.0, 36.4, 20.1 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("armRightBack:position")
+tracks/14/path = NodePath("sprites/armRightBack:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -865,7 +1000,7 @@ tracks/14/keys = {
 "values": [ Vector2( 30.1074, 22.7348 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("armRightBack:rotation_degrees")
+tracks/15/path = NodePath("sprites/armRightBack:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -877,7 +1012,7 @@ tracks/15/keys = {
 "values": [ -102.9 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("earFront:position")
+tracks/16/path = NodePath("sprites/earFront:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -889,7 +1024,7 @@ tracks/16/keys = {
 "values": [ Vector2( -28.7395, -51.5371 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("earFront:rotation_degrees")
+tracks/17/path = NodePath("sprites/earFront:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -901,7 +1036,7 @@ tracks/17/keys = {
 "values": [ 23.1, 10.0, 27.4 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("body:position")
+tracks/18/path = NodePath("sprites/body:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -913,7 +1048,7 @@ tracks/18/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("body:rotation_degrees")
+tracks/19/path = NodePath("sprites/body:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -936,8 +1071,32 @@ tracks/20/keys = {
 "update": 0,
 "values": [ 15.9, 15.9 ]
 }
+tracks/21/type = "value"
+tracks/21/path = NodePath("spritesDie:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("sprites:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -965,8 +1124,32 @@ tracks/1/keys = {
 "method": "walkCat"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("spritesDie:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprites:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -994,8 +1177,32 @@ tracks/1/keys = {
 "method": "walkCat"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("spritesDie:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprites:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -1023,7 +1230,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 718.6 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("armLeftBack:position")
+tracks/2/path = NodePath("sprites/armLeftBack:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1035,7 +1242,7 @@ tracks/2/keys = {
 "values": [ Vector2( -51.8182, 19.0909 ), Vector2( -51.8182, 19.0909 ), Vector2( -51.8182, 19.0909 ), Vector2( -51.8182, 19.0909 ), Vector2( -48.5426, 19.2116 ), Vector2( -48.5426, 19.2116 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("armLeftBack:rotation_degrees")
+tracks/3/path = NodePath("sprites/armLeftBack:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1047,7 +1254,7 @@ tracks/3/keys = {
 "values": [ -8.7, 26.0, -3.0, 20.1, -17.9, -17.9 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("tail:position")
+tracks/4/path = NodePath("sprites/tail:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1059,7 +1266,7 @@ tracks/4/keys = {
 "values": [ Vector2( 45, -12.2727 ), Vector2( 44.632, -10.3796 ), Vector2( 44.632, -10.3796 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("tail:rotation_degrees")
+tracks/5/path = NodePath("sprites/tail:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1071,7 +1278,7 @@ tracks/5/keys = {
 "values": [ 9.6, 1.2, 73.0, 73.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("armRightBack:position")
+tracks/6/path = NodePath("sprites/armRightBack:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1083,7 +1290,7 @@ tracks/6/keys = {
 "values": [ Vector2( 29.5454, 30 ), Vector2( 29.5454, 30 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("armRightBack:rotation_degrees")
+tracks/7/path = NodePath("sprites/armRightBack:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1095,7 +1302,7 @@ tracks/7/keys = {
 "values": [ 0.0, -26.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("earBack:position")
+tracks/8/path = NodePath("sprites/earBack:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1107,7 +1314,7 @@ tracks/8/keys = {
 "values": [ Vector2( -71.8182, -60 ), Vector2( -72.2915, -63.0136 ), Vector2( -72.2227, -60.4153 ), Vector2( -71.099, -47.8998 ), Vector2( -71.099, -47.8998 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("earBack:rotation_degrees")
+tracks/9/path = NodePath("sprites/earBack:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1119,7 +1326,7 @@ tracks/9/keys = {
 "values": [ 0.0, -11.7, -2.4, -3.9, -2.6, -2.6 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("body:position")
+tracks/10/path = NodePath("sprites/body:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1131,7 +1338,7 @@ tracks/10/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2.72727 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("body:rotation_degrees")
+tracks/11/path = NodePath("sprites/body:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1143,7 +1350,7 @@ tracks/11/keys = {
 "values": [ 0.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("head:position")
+tracks/12/path = NodePath("sprites/head:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1155,7 +1362,7 @@ tracks/12/keys = {
 "values": [ Vector2( -32.7273, 2.72727 ), Vector2( -32.7273, -0.909091 ), Vector2( -30.9091, 9.09091 ), Vector2( -30.9091, 9.09091 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("head:rotation_degrees")
+tracks/13/path = NodePath("sprites/head:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1167,7 +1374,7 @@ tracks/13/keys = {
 "values": [ 0.0, 0.0, 0.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("armRightFront:position")
+tracks/14/path = NodePath("sprites/armRightFront:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1179,7 +1386,7 @@ tracks/14/keys = {
 "values": [ Vector2( 54.5335, 21.2538 ), Vector2( 55.7885, 19.266 ), Vector2( 53.8081, 20.3834 ), Vector2( 55.7885, 19.266 ), Vector2( 51.4347, 20.6103 ), Vector2( 51.4347, 20.6103 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("armRightFront:rotation_degrees")
+tracks/15/path = NodePath("sprites/armRightFront:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1191,7 +1398,7 @@ tracks/15/keys = {
 "values": [ 8.7, -4.6, 5.3, -4.6, 17.6, 17.6 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("earFront:position")
+tracks/16/path = NodePath("sprites/earFront:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1203,7 +1410,7 @@ tracks/16/keys = {
 "values": [ Vector2( -15.5353, -56.5009 ), Vector2( -15.7105, -59.3853 ), Vector2( -16.5834, -58.7474 ), Vector2( -12.7148, -47.7084 ), Vector2( -12.7148, -47.7084 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("earFront:rotation_degrees")
+tracks/17/path = NodePath("sprites/earFront:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1215,7 +1422,7 @@ tracks/17/keys = {
 "values": [ -7.89725, -8.6, -8.6, -8.28057, -8.28057 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("armLeftFront:position")
+tracks/18/path = NodePath("sprites/armLeftFront:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -1227,7 +1434,7 @@ tracks/18/keys = {
 "values": [ Vector2( -3.63636, 17.2727 ), Vector2( -3.63636, 17.2727 ), Vector2( -3.63636, 17.2727 ), Vector2( -3.63636, 17.2727 ), Vector2( -12.6377, 14.4302 ), Vector2( -12.6377, 14.4302 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("armLeftFront:rotation_degrees")
+tracks/19/path = NodePath("sprites/armLeftFront:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -1239,7 +1446,7 @@ tracks/19/keys = {
 "values": [ -17.3, -1.7, -24.2, -1.7, -38.4, -38.4 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("face:position")
+tracks/20/path = NodePath("sprites/face:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -1251,7 +1458,7 @@ tracks/20/keys = {
 "values": [ Vector2( -52.7273, -31.8182 ), Vector2( -53.6364, -34.5455 ), Vector2( -54.5454, -33.6364 ), Vector2( -52.7273, -20.9091 ), Vector2( -52.7273, -20.9091 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("face:rotation_degrees")
+tracks/21/path = NodePath("sprites/face:rotation_degrees")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -1262,12 +1469,48 @@ tracks/21/keys = {
 "update": 0,
 "values": [ 0.0, 0.0, 0.0 ]
 }
+tracks/22/type = "value"
+tracks/22/path = NodePath("sprites:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("spritesDie:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("sprites:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("armRightBack:position")
+tracks/0/path = NodePath("sprites/armRightBack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1279,7 +1522,7 @@ tracks/0/keys = {
 "values": [ Vector2( 25.4545, 30.909 ), Vector2( 22.2972, 25.221 ), Vector2( 13.6854, 23.6239 ), Vector2( 14.286, 25.1909 ), Vector2( 16.2502, 27.4398 ), Vector2( 18.2145, 29.6886 ), Vector2( 24.3489, 27.3463 ), Vector2( 30.4833, 25.0039 ), Vector2( 29.5454, 30 ), Vector2( 23.8296, 28.547 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("armRightBack:rotation_degrees")
+tracks/1/path = NodePath("sprites/armRightBack:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1291,7 +1534,7 @@ tracks/1/keys = {
 "values": [ 0.0, -2.47143, 3.3, -26.8, -26.6 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("armRightFront:position")
+tracks/2/path = NodePath("sprites/armRightFront:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1303,7 +1546,7 @@ tracks/2/keys = {
 "values": [ Vector2( 54.5455, 15 ), Vector2( 55.922, 8.83435 ), Vector2( 51.4816, 0.665742 ), Vector2( 48.4231, 4.70317 ), Vector2( 45.3648, 12.482 ), Vector2( 47.5443, 18.971 ), Vector2( 51.9193, 14.8488 ), Vector2( 53.8069, 15.1729 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("armRightFront:rotation_degrees")
+tracks/3/path = NodePath("sprites/armRightFront:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1315,7 +1558,7 @@ tracks/3/keys = {
 "values": [ -6.5, -20.0, -9.7, 4.5, 9.9, 19.1, 2.5, -3.3 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("armLeftFront:position")
+tracks/4/path = NodePath("sprites/armLeftFront:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1327,7 +1570,7 @@ tracks/4/keys = {
 "values": [ Vector2( -3.63636, 17.2727 ), Vector2( -3.57488, 12.0638 ), Vector2( -13.0468, 15.651 ), Vector2( -19.7396, 16.3906 ), Vector2( -18.9522, 15.3415 ), Vector2( -14.9829, 17.4742 ), Vector2( -13.3832, 12.5985 ), Vector2( -7.06184, 12.9767 ), Vector2( -8.01324, 18.8095 ), Vector2( -6.7656, 13.7453 ), Vector2( -7.36319, 12.4008 ), Vector2( -20.9339, 20.7861 ), Vector2( -16.5578, 20.4815 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("armLeftFront:rotation_degrees")
+tracks/5/path = NodePath("sprites/armLeftFront:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1339,7 +1582,7 @@ tracks/5/keys = {
 "values": [ 0.0, 6.0, 6.0, -7.2, -14.4, -20.6, -32.3, -25.0, -27.7, -12.6667, 3.2, 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("armLeftBack:position")
+tracks/6/path = NodePath("sprites/armLeftBack:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1351,7 +1594,7 @@ tracks/6/keys = {
 "values": [ Vector2( -51.8182, 19.0909 ), Vector2( -52.3819, 19.1892 ), Vector2( -45.2924, 21.4397 ), Vector2( -48.7798, 15.7613 ), Vector2( -54.1714, 14.1738 ), Vector2( -53.6169, 16.3702 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("armLeftBack:rotation_degrees")
+tracks/7/path = NodePath("sprites/armLeftBack:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1363,7 +1606,7 @@ tracks/7/keys = {
 "values": [ 0.0, -15.0, -30.0, -21.1, -15.55, -10.0, 15.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("head:position")
+tracks/8/path = NodePath("sprites/head:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1375,7 +1618,7 @@ tracks/8/keys = {
 "values": [ Vector2( -30.9091, 0 ), Vector2( -25.4546, 1.81818 ), Vector2( -38.2138, 0.140859 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("head:rotation_degrees")
+tracks/9/path = NodePath("sprites/head:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1387,7 +1630,7 @@ tracks/9/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("tail:position")
+tracks/10/path = NodePath("sprites/tail:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1399,7 +1642,7 @@ tracks/10/keys = {
 "values": [ Vector2( 45, -12.2727 ), Vector2( 38.6364, -17.4242 ), Vector2( 42.2728, -15.9091 ), Vector2( 39.1819, -16.5455 ), Vector2( 36.0909, -20.0227 ), Vector2( 39.0606, -17.4394 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("tail:rotation_degrees")
+tracks/11/path = NodePath("sprites/tail:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1411,7 +1654,7 @@ tracks/11/keys = {
 "values": [ 0.0, 12.6, 20.2, 25.2, 20.16, 15.12, 10.08 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("earFront:position")
+tracks/12/path = NodePath("sprites/earFront:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1423,7 +1666,7 @@ tracks/12/keys = {
 "values": [ Vector2( -14.5455, -60 ), Vector2( -9.09096, -58.1818 ), Vector2( -23.2138, -58.0409 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("earFront:rotation_degrees")
+tracks/13/path = NodePath("sprites/earFront:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1435,7 +1678,7 @@ tracks/13/keys = {
 "values": [ -7.89725, -20.0, -24.7 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("body:position")
+tracks/14/path = NodePath("sprites/body:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1447,7 +1690,7 @@ tracks/14/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -0.454546, -4.54545 ), Vector2( -2.72727, -5.45455 ), Vector2( -4.09091, -4.09091 ), Vector2( -8.63636, -1.81818 ), Vector2( -5.90909, -1.81818 ), Vector2( -2.72727, -5.45455 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("body:rotation_degrees")
+tracks/15/path = NodePath("sprites/body:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1459,7 +1702,7 @@ tracks/15/keys = {
 "values": [ 0.0, -2.4, -2.4, -1.92, -1.44 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("earBack:position")
+tracks/16/path = NodePath("sprites/earBack:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1471,7 +1714,7 @@ tracks/16/keys = {
 "values": [ Vector2( -71.8182, -61.8182 ), Vector2( -66.3637, -60 ), Vector2( -74.1229, -59.8592 ), Vector2( -74.9104, -58.5307 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("earBack:rotation_degrees")
+tracks/17/path = NodePath("sprites/earBack:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1483,7 +1726,7 @@ tracks/17/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("face:position")
+tracks/18/path = NodePath("sprites/face:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -1495,7 +1738,7 @@ tracks/18/keys = {
 "values": [ Vector2( -64.5454, -28.1818 ), Vector2( -59.0909, -26.3636 ), Vector2( -64.7309, -29.4222 ), Vector2( -68.5527, -32.0262 ), Vector2( -73.9606, -30.1376 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("face:rotation_degrees")
+tracks/19/path = NodePath("sprites/face:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -1530,79 +1773,112 @@ tracks/21/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/22/type = "value"
+tracks/22/path = NodePath("spritesDie:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("sprites:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="CatPlayer" type="Node2D"]
-position = Vector2( 2, 56 )
-scale = Vector2( -1.1, 1.1 )
+position = Vector2( 2, 61 )
+scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 11 )
 
-[node name="armLeftBack" type="Sprite" parent="."]
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="armLeftBack" type="Sprite" parent="sprites"]
 position = Vector2( -51.8182, 19.0909 )
-rotation = -0.151844
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 4 )
 offset = Vector2( 0.826439, 10.7438 )
 
-[node name="tail" type="Sprite" parent="."]
+[node name="tail" type="Sprite" parent="sprites"]
 position = Vector2( 45, -12.2727 )
-rotation = 0.167552
 scale = Vector2( -1.568, 1.568 )
 texture = ExtResource( 3 )
 offset = Vector2( 4.51996, -24.9412 )
 
-[node name="armRightBack" type="Sprite" parent="."]
-position = Vector2( 29.5454, 30 )
+[node name="armRightBack" type="Sprite" parent="sprites"]
+position = Vector2( 25.4545, 30.909 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 offset = Vector2( -0.826406, 9.09095 )
 
-[node name="earBack" type="Sprite" parent="."]
-position = Vector2( -71.8182, -60 )
+[node name="earBack" type="Sprite" parent="sprites"]
+position = Vector2( -71.8182, -61.8182 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 1 )
 offset = Vector2( -1.57025, -9.0909 )
 
-[node name="body" type="Sprite" parent="."]
+[node name="body" type="Sprite" parent="sprites"]
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 7 )
 
-[node name="head" type="Sprite" parent="."]
-position = Vector2( -32.7273, 2.72727 )
+[node name="head" type="Sprite" parent="sprites"]
+position = Vector2( -30.9091, 0 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 5 )
 offset = Vector2( -8.34711, -25.3719 )
 
-[node name="face" type="Sprite" parent="."]
-position = Vector2( -52.7273, -31.8182 )
+[node name="face" type="Sprite" parent="sprites"]
+position = Vector2( -64.5454, -28.1818 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 8 )
 offset = Vector2( 7.19008, 5.70248 )
 
-[node name="earFront" type="Sprite" parent="."]
-position = Vector2( -15.5353, -56.5009 )
+[node name="earFront" type="Sprite" parent="sprites"]
+position = Vector2( -14.5455, -60 )
 rotation = -0.137833
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 6 )
 offset = Vector2( 3.57563, -6.85762 )
 
-[node name="armLeftFront" type="Sprite" parent="."]
+[node name="armLeftFront" type="Sprite" parent="sprites"]
 position = Vector2( -3.63636, 17.2727 )
-rotation = -0.301942
 scale = Vector2( 1.54039, 1.38596 )
 texture = ExtResource( 9 )
 offset = Vector2( -3.30579, 21.4876 )
 
-[node name="armRightFront" type="Sprite" parent="."]
-position = Vector2( 54.5335, 21.2538 )
-rotation = 0.151844
+[node name="armRightFront" type="Sprite" parent="sprites"]
+position = Vector2( 54.5455, 15 )
+rotation = -0.113446
 texture = ExtResource( 10 )
 offset = Vector2( -0.82642, 14.876 )
 
+[node name="spritesDie" type="Node2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="spritesDie"]
+frames = SubResource( 1 )
+animation = "end"
+frame = 17
+speed_scale = 2.5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Jump = SubResource( 1 )
-anims/death = SubResource( 2 )
-anims/fall = SubResource( 3 )
-anims/flip_left = SubResource( 4 )
-anims/flip_right = SubResource( 5 )
-anims/go_to = SubResource( 6 )
-anims/walk = SubResource( 7 )
+anims/Jump = SubResource( 2 )
+anims/death = SubResource( 3 )
+anims/die = SubResource( 4 )
+anims/fall = SubResource( 5 )
+anims/flip_left = SubResource( 6 )
+anims/flip_right = SubResource( 7 )
+anims/go_to = SubResource( 8 )
+anims/walk = SubResource( 9 )

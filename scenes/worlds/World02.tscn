@@ -6,10 +6,10 @@
 [ext_resource path="res://scenes/fragments/FragmentNormal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/fragments/FragmentHole.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/imgs/shadow.png" type="Texture" id=7]
+[ext_resource path="res://scenes/fragments/FragmentColun.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/blocks/PlanetType01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/particles/StarsWorld.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/blocks/Crystal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/blocks/ExitScene.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
@@ -33,11 +33,6 @@ position = Vector2( 640, 550 )
 [node name="Card" parent="cards" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
 
-[node name="shadow" type="Sprite" parent="cards/Card"]
-position = Vector2( 1.5, -4 )
-scale = Vector2( 0.33, 0.33 )
-texture = ExtResource( 7 )
-
 [node name="FragmentNormal" parent="cards/Card" instance=ExtResource( 4 )]
 scale = Vector2( 0.5, 0.5 )
 
@@ -48,28 +43,17 @@ scale = Vector2( 0.3, 0.3 )
 [node name="Card2" parent="cards" instance=ExtResource( 3 )]
 position = Vector2( 640, 550 )
 
-[node name="shadow" type="Sprite" parent="cards/Card2"]
-position = Vector2( 1.5, -4 )
-scale = Vector2( 0.33, 0.33 )
-texture = ExtResource( 7 )
-
 [node name="FragmentHole" parent="cards/Card2" instance=ExtResource( 6 )]
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Card3" parent="cards" instance=ExtResource( 3 )]
-position = Vector2( 1064, 200 )
+[node name="Card4" parent="cards" instance=ExtResource( 3 )]
+position = Vector2( 1064, 193.441 )
 
-[node name="shadow2" type="Sprite" parent="cards/Card3"]
-position = Vector2( 0, -3 )
-scale = Vector2( 0.33, 0.33 )
-texture = ExtResource( 7 )
-
-[node name="FragmentNormal" parent="cards/Card3" instance=ExtResource( 4 )]
+[node name="FragmentColun" parent="cards/Card4" instance=ExtResource( 7 )]
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Crystal" parent="cards/Card3/FragmentNormal" instance=ExtResource( 10 )]
-position = Vector2( 0.109131, 40 )
-scale = Vector2( 0.6, 0.6 )
+[node name="ExitScene" parent="cards/Card4/FragmentColun" instance=ExtResource( 10 )]
+position = Vector2( 1.00012, -39 )
 
 [node name="PlanetType01" parent="." instance=ExtResource( 8 )]
 position = Vector2( 215.109, 561.841 )

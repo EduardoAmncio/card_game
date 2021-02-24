@@ -5,6 +5,7 @@ extends KinematicBody2D
 
 var canChangeScene = false;
 var getCrystal = false;
+var isDeath = false;
 
 #Consts for moviment:
 const TARGET_FPS = 60
@@ -77,9 +78,6 @@ func _physics_process(delta):
 func _initialize_state_finishWorld():
 	state_next = STATES.FINISHI_WORLD
 	player.goTo()
-	#print(actualScene.returnNextScene())
-	print(get_tree().get_root().get_node("World").returnNextScene())
-	
 	SceneChanger.change_scene(get_tree().get_root().get_node("World").returnNextScene());
 	pass
 
@@ -255,4 +253,14 @@ func _on_SensorCrystal_area_entered(area):
 
 func _on_SensorCrystal_area_exited(area):
 	getCrystal = false
+	pass # Replace with function body.
+
+
+func _on_SensorDeathArea_area_entered(area):
+	isDeath = true;
+	pass # Replace with function body.
+
+
+func _on_SensorDeathArea_area_exited(area):
+	isDeath = false;
 	pass # Replace with function body.

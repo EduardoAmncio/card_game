@@ -19,12 +19,15 @@ var state_preview = null;
 var restZone: Node2D;
 var arrZoneEntered = [];
 
+onready var animationPlayer = $AnimationPlayer;
+
 func _ready():
 	z_index = 50;
 	restZone = null;
 	state_current = -1;
 	state_preview = -1;
 	state_next = STATES.REST;
+	animationPlayer.play("stop");
 	#Signals.connect("card_is_stopped", self, )
 
 
@@ -58,6 +61,7 @@ func _initialize_rest():
 	isToucheable = true;
 	z_index = 50;
 	state_next = STATES.REST;
+	animationPlayer.play("stop");
 	
 	##emit_signal("card_is_stopped", self, true);
 	#Signals.connect("card_is_stopped", self, )
@@ -75,6 +79,7 @@ func run_state_rest(delta):
 func _initialize_follow():
 	isToucheable = false;
 	state_next = STATES.FOLLOW;
+	animationPlayer.play("Touched");
 
 func run_state_follow(delta):
 	_follow(delta);

@@ -3,7 +3,6 @@
 [ext_resource path="res://scenes/CatPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/particles/stars.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/imgs/particle.png" type="Texture" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0120482, 0.216867, 0.451807, 0.710843, 1 )
@@ -23,17 +22,22 @@ flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+scale = 2.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 anim_offset_random = 1.0
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 59.8495, 46.1864 )
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/particle.png-9d6409878348d213e630b21877abba64.stex"
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 86.0698, 23.93 )
+extents = Vector2( 59.8495, 46.1864 )
 
 [sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 86.0698, 23.93 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 17.5445, 26.7073 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -48,7 +52,7 @@ amount = 24
 
 [node name="ParticleTrace" type="Particles2D" parent="."]
 position = Vector2( -0.824997, 78.645 )
-z_index = 150
+z_index = 110
 z_as_relative = false
 amount = 40
 lifetime = 2.0
@@ -56,11 +60,11 @@ speed_scale = 2.0
 fixed_fps = 60
 local_coords = false
 process_material = SubResource( 5 )
-texture = ExtResource( 4 )
+texture = SubResource( 6 )
 
 [node name="CatPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 66.5 )
-z_index = 500
+z_index = 90
 
 [node name="stars2" parent="CatPlayer" instance=ExtResource( 3 )]
 position = Vector2( 2.16225, -13.9183 )
@@ -70,7 +74,7 @@ emitting = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 78.645 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="SensorWorld" type="Area2D" parent="."]
 position = Vector2( 0, -28.4678 )
@@ -79,7 +83,7 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorWorld"]
 position = Vector2( -0.825001, 37.5428 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="SensorCrystal" type="Area2D" parent="."]
 position = Vector2( 0, -152.344 )
@@ -88,8 +92,19 @@ collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorCrystal"]
 position = Vector2( 0, 219.407 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
+
+[node name="SensorDeathArea" type="Area2D" parent="."]
+position = Vector2( 0, -152.344 )
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorDeathArea"]
+position = Vector2( 0, 219.407 )
+shape = SubResource( 9 )
 [connection signal="area_entered" from="SensorWorld" to="." method="_on_Sensor_area_entered"]
 [connection signal="area_exited" from="SensorWorld" to="." method="_on_Sensor_area_exited"]
 [connection signal="area_entered" from="SensorCrystal" to="." method="_on_SensorCrystal_area_entered"]
 [connection signal="area_exited" from="SensorCrystal" to="." method="_on_SensorCrystal_area_exited"]
+[connection signal="area_entered" from="SensorDeathArea" to="." method="_on_SensorDeathArea_area_entered"]
+[connection signal="area_exited" from="SensorDeathArea" to="." method="_on_SensorDeathArea_area_exited"]
